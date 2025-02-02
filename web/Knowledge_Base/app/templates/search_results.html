@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Résultats de la recherche pour "{{ query }}"{% endblock %}
+    
+{% block content %}
+
+<h1>Résultats de la recherche pour "{{ query }}"</h1>
+<ul>
+    {% for result in results %}
+    <li class="transition-effect">
+        <a href="{{ url_for('view_note', category_name=result.filepath.split('/')[2], filename=result.filepath.split('/')[-1]) }}">
+            {{ result.filepath }}
+        </a>
+        <div class="preview">
+            {{ result.preview|safe }}
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('index') }}" class="transition-effect">Retour à l'accueil</a>
+
+{% endblock %}

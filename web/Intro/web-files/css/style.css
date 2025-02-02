@@ -1,0 +1,146 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 950px;
+    background-image: url(../img/background.png); /* Fond d'écran personnalisé */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; /* S'adapte à toute la page */
+    color: #333; /* Texte plus doux et neutre */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #556b2f; /* Vert olive discret, rappelant la nature */
+    color: white;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Légère ombre pour du relief sans exagération */
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header-container h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+nav a {
+    color: #ffffff; /* Blanc sobre pour les liens */
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #e0e0e0; /* Couleur légèrement adoucie au survol */
+}
+
+.container {
+    width: 350px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff; /* Fond blanc pour plus de simplicité */
+    color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet de carte flottante */
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #556b2f; /* Vert olive pour rappeler la nature */
+}
+
+input[type="text"], input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f4f4f9;
+    color: #333;
+    border: 1px solid #ccc; /* Bordure douce et discrète */
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #556b2f; /* Léger changement de couleur au focus */
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #556b2f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #6b8e23; /* Vert un peu plus lumineux au survol */
+}
+
+img, svg {
+    width: 100px;
+    margin-bottom: 20px;
+    filter: none; /* Suppression des filtres pour un style plus simple */
+}
+
+img.big {
+    width: 750px;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none; /* Retire les puces des listes */
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 30px; /* Espace entre les éléments */
+}
+
+.item-content {
+    display: flex; /* Utilisation de flexbox pour aligner les éléments horizontalement */
+    align-items: center; /* Centre les éléments verticalement */
+    justify-content: space-between; /* Crée un espace entre le texte et l'image */
+    background-color: #f4f4f9; /* Ajout d'un fond clair pour contraster avec le texte */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Légère ombre pour séparer chaque élément */
+}
+
+.text-content {
+    max-width: 70%; /* Limite la largeur du texte à 70% pour laisser de la place à l'image */
+}
+
+.item-content img {
+    width: 150px; /* Taille fixe pour les images */
+    height: auto;
+    border-radius: 5px; /* Coins arrondis pour les images */
+    margin-left: 20px; /* Espace entre le texte et l'image */
+}
+
+.container-pets {
+    width: 750px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff; /* Fond blanc pour plus de simplicité */
+    color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet de carte flottante */
+    border-radius: 10px;
+}

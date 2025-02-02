@@ -1,0 +1,18 @@
+services:
+  pemp-my-key:
+    build: ./Pemp_my_key/
+    restart: unless-stopped
+    ports:
+      - 50002:50002
+
+  pot-de-miel:
+    build: ./Pot_de_miel/
+    restart: unless-stopped
+    ports:
+      - 50001:50001
+
+  secure-cache-server:
+    build: ./Twister
+    restart: unless-stopped
+    ports:
+      - 50003:50003

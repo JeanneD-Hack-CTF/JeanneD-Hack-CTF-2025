@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Utilisateurs</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Liste des utilisateurs</h1>
+        {% for user in users %}
+            <li><b>Nom</b> : {{ user[0] }} - <b>Role</b> : {{ user[1] }}</li>
+        {% endfor %}
+    </div>
+</body>
+</html>

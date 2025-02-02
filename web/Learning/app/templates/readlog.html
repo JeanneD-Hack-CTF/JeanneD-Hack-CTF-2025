@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lecture des logs</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Contenu du fichier log</h1>
+        {% if content %}
+            <pre style="text-align: left;">{{ content }}</pre>
+        {% elif error %}
+            <p style="color:red;">Erreur : {{ error }}</p>
+        {% endif %}
+        <a href="{{ url_for('logs') }}"><button>Retour</button></a>
+    </div>
+</body>
+</html>

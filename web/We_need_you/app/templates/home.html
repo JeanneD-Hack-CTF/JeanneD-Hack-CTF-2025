@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<header>
+    <h1 class="main-title">Jeanne d'Hack</h1>
+    <h2 class="subtitle">Rejoignez la Résistance Cyber !</h2>
+</header>
+
+<section class="intro-section">
+    <p class="intro-text">
+        Dans un monde dominé par les corporations et l'oppression numérique, seul un groupe se dresse pour rétablir la liberté : <span class="highlight">Jeanne d'Hack</span>. Si vous avez les compétences, l'audace et l'âme rebelle, nous vous voulons. Rejoignez notre camp d'élite et devenez un hacker de légende.
+    </p>
+    <a href="#join" class="btn-main">Rejoignez la Résistance</a>
+</section>
+
+<section class="features" id="features">
+    <h2>Pourquoi rejoindre Jeanne d'Hack ?</h2>
+    <div class="feature-box">
+        <div class="feature neon-box">
+            <h3>Cyber-entraînement Intensif</h3>
+            <p>Apprenez les techniques les plus avancées de hacking et de cybersécurité dans un environnement immersif.</p>
+        </div>
+        <div class="feature neon-box">
+            <h3>Équipement de Pointe</h3>
+            <p>Accédez aux outils technologiques les plus avancés pour infiltrer, protéger et maîtriser le cyberespace.</p>
+        </div>
+        <div class="feature neon-box">
+            <h3>Communauté Sélecte</h3>
+            <p>Faites partie d'un réseau mondial de hackers résistants, connectés par une cause commune : la liberté numérique.</p>
+        </div>
+    </div>
+</section>
+
+<section class="join-section" id="join">
+    <h2>Comment nous rejoindre ?</h2>
+    <p>Remplissez le formulaire de recrutement et montrez-nous ce que vous avez dans le code. Nous vous contacterons si vous avez ce qu'il faut.</p>
+    <a href="{{ url_for('resume') }}" class="btn-main">Postuler Maintenant</a>
+</section>
+
+{% endblock %}

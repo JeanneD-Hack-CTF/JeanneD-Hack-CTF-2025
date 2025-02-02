@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.classList.add('notification');
+            notification.innerText = message;
+            const container = document.querySelector('.notification-container');
+            container.appendChild(notification);
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+    </script>
+    {% block script %}
+    {% endblock %}
+</head>
+<body>
+    <div class="page-container">
+        <div class="notification-container"></div>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <footer id="footer">
+            <p>Base de connaissances - Pentest & Hacking - Jeanned'HackCTF 2025</p>
+        </footer>
+    </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <script>
+                    showNotification("{{ msg }}")
+                </script>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

@@ -1,0 +1,2 @@
+FLAG = b'JDHACK{A1w4Ys_US3_crYpt0grApHiC_SaFe_rnG_KidS!}'
+SEED = 42947436

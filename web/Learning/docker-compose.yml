@@ -1,0 +1,5 @@
+services:
+  learning_web:
+    build: .
+    ports:
+      - 8000:8000

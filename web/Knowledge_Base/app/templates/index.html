@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Base de connaissances{% endblock %}
+
+{% block content %}
+
+<h1 class="neon-text">Base de connaissances - Jeanne d'Hack</h1>
+<div class="header-actions">
+    <a href="{{ url_for('add_note') }}" class="create-note-btn transition-effect" id="add_note">Ajouter une note</a>
+    <form action="{{ url_for('search') }}" method="POST">
+        <input type="text" class="search-bar" name="query" placeholder="Rechercher..." required>
+        <input type="submit" value="Rechercher">
+    </form>  
+</div>
+<h2>Catégories</h2>
+<ul>
+    {% for category in categories %}
+    <li class="transition-effect">
+        <a href="{{ url_for('view_category', category_name=category) }}">{{ category }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

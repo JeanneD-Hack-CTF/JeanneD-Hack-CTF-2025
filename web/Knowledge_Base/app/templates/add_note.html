@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Créer une nouvelle note{% endblock %}
+
+{% block script %}
+<script>
+function toggleCustomCategory() {
+    const categorySelect = document.getElementById('category');
+    const customCategoryInput = document.getElementById('custom_category');
+    customCategoryInput.style.display = categorySelect.value === 'Autre...' ? 'block' : 'none';
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<h1>Créer une nouvelle note</h1>
+<form action="{{ url_for('add_note') }}" method="POST">
+    <table style="width: 70%;">
+        <tr>
+            <td>
+                <label for="title">Titre :</label>
+            </td>
+            <td>
+                <input class="create-txtarea" type="text" name="title" id="title" placeholder="Ma nouvelle note" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="content">Contenu :</label>
+            </td>
+            <td>
+                <textarea class="create-txtarea" name="content" id="content" rows="10" placeholder="Contenu au format markdown..." required></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="category">Catégorie :</label>
+            </td>
+            <td>
+                <select name="category" id="category" onchange="toggleCustomCategory()" required>
+                    {% for category in categories %}
+                        <option value="{{ category }}">{{ category }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input class="create-txtarea" type="text" name="custom_category" id="custom_category" placeholder="Nom de la nouvelle catégorie" style="display: none; margin-top: 10px;">
+            </td>
+        </tr>
+    </table>
+    <button class="center" type="submit">Créer</button>
+</form>
+</br>
+<a href="{{ url_for('index') }}" class="transition-effect">Retour à l'accueil</a>
+{% endblock %}

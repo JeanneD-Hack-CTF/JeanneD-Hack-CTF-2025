@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accueil</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenue sur le Web Learning Challenge</h1>
+        {% if session.user %}
+            <p>Connecté en tant que {{ session.user }}</p>
+            <a href="{{ url_for('logout') }}"><button>Se déconnecter</button></a>
+            {% if request.cookies.get('role') == 'admin' %}
+                <a href="{{ url_for('admin') }}"><button>Interface d'administration</button></a>
+            {% elif request.cookies.get('role') == 'guest' %}
+                <a href="{{ url_for('dashboard') }}"><button>Tableau de bord</button></a>
+            {% endif %}
+        {% else %}
+            <a href="{{ url_for('login') }}"><button>Se connecter</button></a>
+        {% endif %}
+    </div>
+</body>
+</html>

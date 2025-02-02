@@ -1,0 +1,4 @@
+De l'agent T8386 à l'agent W1861
+
+Suite à la réussite des premiers tests sur une partie de nos caméras, nous allons procéder à un test complet sur l'ensemble de toutes les caméras du complexe.
+À cette fin, je vous demande de me donner les mots de passe des caméras suivantes : Caméra1, Caméra6, Caméra11, Caméra14, Caméra18, Caméra27, Caméra29, Caméra31, Caméra34, Caméra36, Caméra50, Caméra54, Caméra56, Caméra66, Caméra69, Caméra74, Caméra82, Caméra90, Caméra92, Caméra94, Caméra98, Caméra111, Caméra112, Caméra116, Caméra117, Caméra124, Caméra129, Caméra132, Caméra136, Caméra137, Caméra143, Caméra151, Caméra160, Caméra171, Caméra172, Caméra177, Caméra187, Caméra191, Caméra193, Caméra203, Caméra207, Caméra214, Caméra216

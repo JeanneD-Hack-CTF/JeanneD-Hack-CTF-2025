@@ -1,0 +1,3 @@
+Félications ! Vous pouvez valider la challenge avec le flag suivant :
+
+JDHACK{P3nt3$t_15_n07_tHAt_h4rD,_n0?}

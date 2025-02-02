@@ -1,0 +1,322 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: #bb86fc;
+    text-shadow: 0 0 10px rgba(187, 134, 252, 0.5);
+}
+
+a {
+    color: #03dac6;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #bb86fc;
+    text-shadow: 0 0 8px #bb86fc;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+button, input[type="submit"] {
+    background-color: #03dac6;
+    color: #121212;
+    border: 2px solid #03dac6;
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button:hover, input[type="submit"]:hover { 
+    background-color: #121212;
+    color: #03dac6;
+    border: 2px solid #bb86fc;
+    border-radius: 8px;
+    text-shadow: 0 0 8px #bb86fc;
+}
+
+input[type="text"], textarea {
+    background-color: #222;
+    border: 1px solid #03dac6;
+    border-radius: 8px;
+    padding: 10px;
+    width: 50%;
+    color: #e0e0e0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border-color: #bb86fc;
+    box-shadow: 0 0 8px #bb86fc;
+}
+
+form {
+    margin: auto;
+    padding: 20px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: #1f1f1f;
+    padding: 15px;
+    margin: 10px 0;
+    border-left: 4px solid #03dac6;
+    transition: border-color 0.3s ease;
+}
+
+li:hover {
+    border-left: 4px solid #bb86fc;
+}
+
+footer {
+    text-align: center;
+    margin: 50px 0;
+    font-size: 0.8em;
+    color: #888;
+}
+
+footer a {
+    color: #03dac6;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #bb86fc;
+}
+
+/* Effet de néon doux */
+.neon-text {
+    color: #ff79c6;
+    text-shadow: 0 0 5px rgba(255, 121, 198, 0.5), 0 0 10px rgba(255, 121, 198, 0.5), 0 0 15px rgba(255, 121, 198, 0.5);
+}
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-bottom: 5rem;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1rem;
+}
+
+/* Effet de transition doux */
+.transition-effect {
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Style général pour les blocs de code */
+pre code {
+    display: block;
+    background-color: #2d2d2d; /* Fond sombre */
+    color: #f8f8f2; /* Texte clair */
+    padding: 15px;
+    border-radius: 8px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-x: auto; /* Pour gérer les lignes longues */
+    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.2); /* Ombre légère pour effet cyberpunk */
+    margin-bottom: 20px;
+}
+
+/* Style pour les lignes spécifiques (différentiation syntaxique) */
+pre code .keyword {
+    color: #ff79c6; /* Couleur pour les mots-clés */
+    font-weight: bold;
+}
+
+pre code .string {
+    color: #f1fa8c; /* Couleur pour les chaînes de caractères */
+}
+
+pre code .comment {
+    color: #6272a4; /* Couleur pour les commentaires */
+    font-style: italic;
+}
+
+/* Ajout d'un effet de surbrillance */
+pre code:hover {
+    box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.4); /* Accentuation de l'effet cyberpunk au survol */
+}
+
+/* Style pour le texte inline <code> */
+code {
+    background-color: #44475a; /* Fond légèrement plus clair pour le code inline */
+    color: #f8f8f2;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+}
+
+/* Style général pour les résultats de la recherche */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #1c1c1e;
+    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.2); /* Effet cyberpunk lumineux */
+    transition: box-shadow 0.3s ease;
+}
+
+li:hover {
+    box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.4); /* Accentuation sur hover */
+}
+
+/* Lien vers le fichier */
+a {
+    color: #00ffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-shadow: 0px 0px 5px #00ffff;
+}
+
+/* Style de la prévisualisation */
+.preview {
+    background-color: #2d2d2d;
+    color: #f8f8f2;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Surlignage du mot recherché */
+mark {
+    background-color: #ff79c6;
+    color: black;
+    padding: 0 2px;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+.create-note-btn {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 16px;
+    color: #000;
+    background-color: #00ffcc;
+    border: none;
+    border-radius: 8px;
+    width: 30%;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0, 255, 204, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+.create-note-btn:hover {
+    background-color: #00bfa5;
+    box-shadow: 0 5px 15px rgba(0, 191, 165, 0.5);
+}
+
+.search-bar {
+    width: 50%;
+    font-size: 14px;
+}
+
+.create-txtarea {
+    width: 100%
+}
+
+.center {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+/* Conteneur principal pour les notifications */
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Style des notifications individuelles */
+.notification {
+    background-color: #1a1a2e;
+    color: #00ffcc;
+    border-left: 4px solid #00ffcc;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 255, 204, 0.4);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slide-in 0.5s ease forwards, fade-out 10s ease forwards 8s;
+}
+
+/* Effet de glissement pour apparaître */
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Disparition progressive */
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

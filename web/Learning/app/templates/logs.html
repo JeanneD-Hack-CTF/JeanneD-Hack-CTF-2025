@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logs</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Logs de l'application</h1>
+            <ul>
+                {% for file in log_files %}
+                    <li>
+                      <a href="/readlog?logfile={{ file }}">{{ file }}</span>
+                    </li>
+                {% else %}
+                    <li>Aucun fichier trouvé.</li>
+                {% endfor %}
+            </ul>
+    </div>
+</body>
+</html>

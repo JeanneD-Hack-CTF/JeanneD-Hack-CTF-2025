@@ -1,0 +1,1 @@
+FLAG = "JDHACK{n3V3r_533N_$UcH_4_w0ND3rFU1_k3y!}"

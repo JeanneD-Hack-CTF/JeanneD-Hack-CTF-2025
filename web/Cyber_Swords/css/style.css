@@ -1,0 +1,127 @@
+/* Corps global avec fond d'écran */
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-image: url(../img/background.png); /* Fond d'écran personnalisé */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; /* S'adapte à toute la page */
+    color: #00bfa6; /* Couleur texte bleu/vert très discret */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Pleine hauteur */
+    background-color: #0a0a0a; /* Arrière-plan sombre si pas d'image */
+}
+
+/* En-tête */
+header {
+    background-color: rgba(0, 0, 0, 0.85); /* En-tête très sombre avec transparence */
+    color: #00bfa6; /* Couleur bleu/vert plus douce */
+    padding: 15px 0;
+    box-shadow: 0 0 5px #00bfa6; /* Lueur douce et faible */
+}
+
+/* Conteneur de l'en-tête */
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Titre de l'en-tête */
+.header-container h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #00bfa6; /* Titre bleu/vert discret */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Liens de navigation */
+nav a {
+    color: #00bfa6; /* Liens bleu/vert */
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #008f7a; /* Changement subtil de couleur au survol */
+}
+
+/* Conteneur principal */
+.container {
+    width: 350px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.9); /* Fond noir avec opacité élevée */
+    box-shadow: 0 0 10px rgba(0, 191, 166, 0.3); /* Lueur discrète et légère */
+    border-radius: 8px;
+    border: 1px solid #00bfa6;
+}
+
+/* Titres principaux */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #00bfa6; /* Titre bleu/vert doux */
+    text-transform: uppercase;
+    border-bottom: 1px solid #00bfa6;
+    padding-bottom: 10px;
+}
+
+/* Champs de texte et de mot de passe */
+input[type="text"],
+input[type="password"] {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #008f7a; /* Bordure plus douce */
+    border-radius: 5px;
+    background-color: #111111; /* Fond très sombre */
+    color: #00bfa6; /* Texte bleu/vert doux */
+    box-shadow: none; /* Suppression des lueurs */
+}
+
+/* Bouton de soumission */
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #008f7a; /* Couleur plus sobre pour le bouton */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    box-shadow: none; /* Suppression des effets lumineux */
+    text-transform: uppercase;
+}
+
+input[type="submit"]:hover {
+    background-color: #006f5f; /* Changement subtil de couleur au survol */
+}
+
+/* Images */
+img {
+    width: 100px;
+    margin-bottom: 20px;
+    filter: brightness(90%); /* Réduction de la luminosité des images */
+}
+
+/* Image plus grande */
+img.big {
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+/* SVG */
+svg {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    filter: brightness(90%); /* Réduction de la luminosité des SVG */
+}

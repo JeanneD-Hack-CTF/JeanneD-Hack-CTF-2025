@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  echo_service:
+    image: echo_service:latest
+    restart: unless-stopped
+    # Required for nsjail to work properly
+    privileged: true 
+    ports:
+      - "9000:9000"
+
+  fear_my_thoughts:
+    image: fear_my_thoughts:latest
+    restart: unless-stopped
+    # Required for nsjail to work properly
+    privileged: true 
+    ports:
+      - "9001:9000"
+
+  pyjail:
+    image: pyjail:latest
+    restart: unless-stopped
+    # Required for nsjail to work properly
+    privileged: true 
+    ports:
+      - "9002:9000"
+
+  special_value:
+    image: special_value:latest
+    restart: unless-stopped
+    # Required for nsjail to work properly
+    privileged: true 
+    ports:
+      - "9003:9000"
+

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tableau de bord</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Tableau de bord</h1>
+        <p>Bienvenue, {{ username }} !</p>
+        <a href="{{ url_for('logout') }}"><button>Se déconnecter</button></a>
+        <!-- <a href="{{ url_for('admin') }}"><button>Panneau d'administration</button></a> -->
+    </div>
+</body>
+</html>

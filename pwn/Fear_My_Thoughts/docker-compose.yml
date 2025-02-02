@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  fear_my_thoughts:
+    image: fear_my_thoughts:latest
+    restart: unless-stopped
+    # Required for nsjail to work properly
+    privileged: true 
+    ports:
+      - "9001:9000"

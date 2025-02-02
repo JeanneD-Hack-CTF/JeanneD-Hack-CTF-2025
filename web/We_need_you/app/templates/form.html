@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form id="resume_form" action="/resume" method="post">
+    <!-- Coordonnées -->
+    <div class="section-title">Coordonnées</div>
+
+    <label for="name">Nom complet :</label>
+    <input type="text" id="name" name="name" value="placeholder" required>
+
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" value="placeholder@domain.com" required>
+
+    <label for="phone">Téléphone :</label>
+    <input type="tel" id="phone" name="phone" value="placeholder" required>
+
+    <label for="address">Adresse :</label>
+    <input type="text" id="address" name="address" value="placeholder" required>
+
+    <!-- Expériences professionnelles -->
+    <div class="section-title">Expériences professionnelles</div>
+    <div id="experience-section">
+        <div class="experience-item">
+            <label for="job1_title">Titre du poste :</label>
+            <input type="text" id="job1_title" name="job1_title" value="placeholder" required>
+
+            <label for="job1_company">Entreprise :</label>
+            <input type="text" id="job1_company" name="job1_company" value="placeholder" required>
+
+            <label for="job1_start">Date de début :</label>
+            <input type="date" id="job1_start" name="job1_start" value="2024-01-01" required>
+
+            <label for="job1_end">Date de fin :</label>
+            <input type="date" id="job1_end" name="job1_end" value="">
+
+            <label for="job1_description">Description des tâches :</label>
+            <textarea id="job1_description" name="job1_description" rows="4" required>Placeholder</textarea>
+        </div>
+    </div>
+
+    <button type="button" class="add-button" onclick="addExperience()">Ajouter une expérience</button>
+
+    <!-- Formations -->
+    <div class="section-title">Formations</div>
+    <div id="formation-section">
+        <div class="formation-item">
+            <label for="edu1_title">Diplôme :</label>
+            <input type="text" id="edu1_title" name="edu1_title" value="placeholder" required>
+
+            <label for="edu1_school">École/Université :</label>
+            <input type="text" id="edu1_school" name="edu1_school" value="placeholder" required>
+
+            <label for="edu1_start">Date de début :</label>
+            <input type="date" id="edu1_start" name="edu1_start" value="2024-01-01" required>
+
+            <label for="edu1_end">Date de fin :</label>
+            <input type="date" id="edu1_end" name="edu1_end" value="2024-01-01" required>
+        </div>
+    </div>
+
+    <button type="button" class="add-button" onclick="addFormation()">Ajouter une formation</button>
+
+    <!-- Compétences -->
+    <div class="section-title">Compétences</div>
+
+    <label for="skills">Compétences :</label>
+    <textarea id="skills" name="skills" rows="4" placeholder="Exemple : Programmation (Python, Java), Gestion de projet, etc." required>Placeholder</textarea>
+
+    <!-- Langues -->
+    <div class="section-title">Langues</div>
+
+    <label for="languages">Langues parlées :</label>
+    <textarea id="languages" name="languages" rows="3" placeholder="Exemple : Français (courant), Anglais (avancé), Espagnol (intermédiaire)" required>Placeholder</textarea>
+
+    <!-- Bouton de soumission -->
+    <button class="submit-button" type="submit" name="action" value="export">Générer le CV</button>
+    <button class="submit-button" type="submit" name="action" value="preview">Prévisualiser le CV</button>
+</form>
+
+<script>
+let experienceCount = 1;
+let formationCount = 1;
+
+function addExperience() {
+    experienceCount++;
+    const experienceSection = document.getElementById("experience-section");
+
+    const newExperience = document.createElement("div");
+    newExperience.classList.add("experience-item");
+
+    newExperience.innerHTML = `
+        <label for="job${experienceCount}_title">Titre du poste :</label>
+        <input type="text" id="job${experienceCount}_title" name="job${experienceCount}_title" value="placeholder" required>
+
+        <label for="job${experienceCount}_company">Entreprise :</label>
+        <input type="text" id="job${experienceCount}_company" name="job${experienceCount}_company" value="placeholder" required>
+
+        <label for="job${experienceCount}_start">Date de début :</label>
+        <input type="date" id="job${experienceCount}_start" name="job${experienceCount}_start" value="placeholder" required>
+
+        <label for="job${experienceCount}_end">Date de fin :</label>
+        <input type="date" id="job${experienceCount}_end" name="job${experienceCount}_end">
+
+        <label for="job${experienceCount}_description">Description des tâches :</label>
+        <textarea id="job${experienceCount}_description" name="job${experienceCount}_description" rows="4" value="placeholder" required></textarea>
+    `;
+
+    experienceSection.appendChild(newExperience);
+}
+
+function addFormation() {
+    formationCount++;
+    const formationSection = document.getElementById("formation-section");
+
+    const newFormation = document.createElement("div");
+    newFormation.classList.add("formation-item");
+
+    newFormation.innerHTML = `
+        <label for="edu${formationCount}_title">Diplôme :</label>
+        <input type="text" id="edu${formationCount}_title" name="edu${formationCount}_title" value="placeholder" required>
+
+        <label for="edu${formationCount}_school">École/Université :</label>
+        <input type="text" id="edu${formationCount}_school" name="edu${formationCount}_school" value="placeholder" required>
+
+        <label for="edu${formationCount}_start">Date de début :</label>
+        <input type="date" id="edu${formationCount}_start" name="edu${formationCount}_start" value="placeholder" required>
+
+        <label for="edu${formationCount}_end">Date de fin :</label>
+        <input type="date" id="edu${formationCount}_end" name="edu${formationCount}_end" value="placeholder" required>
+    `;
+
+    formationSection.appendChild(newFormation);
+}
+</script>
+
+{% endblock %}

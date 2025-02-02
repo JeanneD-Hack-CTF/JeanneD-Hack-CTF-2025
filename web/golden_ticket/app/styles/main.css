@@ -1,0 +1,118 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #e09, #d0e);
+  font-family: 'Oswald', sans-serif;
+}
+
+canvas {
+  border-radius: 50%;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1), 
+        0px 6px 20px rgba(0, 0, 0, 0.2);
+  background: radial-gradient(circle, #fff, #ddd);
+}
+
+button {
+  margin-top: 30px;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #ff4b1f, #ff9068);
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Oswald', sans-serif;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: scale(0.98);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#serialNumberContainer {
+  margin-top: 20px;
+  padding: 15px;
+  width: 500px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1), 
+        0px 6px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+#modalContainer {
+    display: none; /* Masqué par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#modal {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    max-width: 90%;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-out;
+    text-align: center;
+}
+
+#modal h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+#modal p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+#modal button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #ff4b1f, #ff9068);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#modal button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#modal button:active {
+    transform: scale(0.98);
+}
+
+/* Animation de fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}

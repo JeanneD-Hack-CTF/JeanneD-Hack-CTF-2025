@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <title>Roue de la Fortune Moderne</title>
+</head>
+<body>
+  <canvas id="wheelCanvas" width="500" height="500"></canvas>
+  <button id="spinWheel" onclick="spinWheel()">Obtenir un ticket</button>
+  <div id="serialNumberContainer">Vous n'avez encore pas encore tiré de ticket</div>
+  <button id="checkTicket" onclick="checkTicket()" hidden="true">Vérifier si mon ticket est gagnant</button>
+
+  <div id="modalContainer" style="display: none">
+      <div id="modal">
+          <h2 id="modalTitle">Titre</h2>
+          <p id="modalMessage">Message ici...</p>
+          <button onclick="closeModal()">Fermer</button>
+      </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('wheelCanvas');
+    const ctx = canvas.getContext('2d');
+    const wheelRadius = 200;
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const segments = ['?', '?', '?', '?', '?', '?'];
+    const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#F1C40F', '#9B59B6'];
+    let currentAngle = 0;
+    let spinAngle = 0;
+    let spinTimeout = null;
+    let isSpinning = false;
+
+    function drawWheel() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.save();
+      ctx.translate(centerX, centerY);
+      ctx.rotate(currentAngle);
+
+      const anglePerSegment = (2 * Math.PI) / segments.length;
+
+      for (let i = 0; i < segments.length; i++) {
+        const startAngle = i * anglePerSegment;
+        const endAngle = startAngle + anglePerSegment;
+
+        // Dessiner le segment
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.arc(0, 0, wheelRadius, startAngle, endAngle);
+        ctx.fillStyle = colors[i % colors.length];
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#fff';
+        ctx.stroke();
+
+        // Ajouter le texte
+        ctx.save();
+        ctx.rotate(startAngle + anglePerSegment / 2);
+        ctx.translate(wheelRadius / 1.5, 0);
+        ctx.rotate(Math.PI / 2);
+
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 30px Oswald';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(segments[i], 0, 0);
+        ctx.restore();
+      }
+
+      ctx.restore();
+      // Ajouter l'indicateur
+      ctx.fillStyle = '#fff';
+      ctx.beginPath();
+      ctx.moveTo(centerX - 15, centerY - wheelRadius - 30);
+      ctx.lineTo(centerX + 15, centerY - wheelRadius - 30);
+      ctx.lineTo(centerX, centerY - wheelRadius - 5);
+      ctx.closePath();
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
+      ctx.shadowBlur = 5;
+      ctx.fill();
+    }
+
+    function spinWheel() {
+      if (isSpinning) return; // Empêche de relancer la roue si elle est déjà en rotation
+      isSpinning = true;
+      document.getElementById('serialNumberContainer').hidden = true;
+      document.getElementById('checkTicket').hidden = true;
+      spinAngle = Math.random() * 0.4 + 0.4; // Vitesse de rotation initiale aléatoire
+      animateSpin();
+    }
+
+    function animateSpin() {
+      currentAngle += spinAngle;
+      spinAngle *= 0.98; // Ralentissement progressif
+
+      if (spinAngle < 0.01) { // Seuil pour arrêter la roue
+        spinAngle = 0;
+        cancelAnimationFrame(spinTimeout);
+        determineResult();
+        isSpinning = false;
+        return;
+      }
+
+      drawWheel();
+      spinTimeout = requestAnimationFrame(animateSpin);
+    }
+
+    function showModal(title, message) {
+      // Met à jour le contenu de la modale
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalMessage').textContent = message;
+
+      // Affiche la modale
+      const modalContainer = document.getElementById('modalContainer');
+      modalContainer.style.display = 'flex';
+    }
+
+    function closeModal() {
+      // Masque la modale
+      const modalContainer = document.getElementById('modalContainer');
+      modalContainer.style.display = 'none';
+    }
+
+    async function determineResult() {
+      const response = await fetch("/tirage.php?tirage=true");
+      const data = await response.json();
+
+      if (data.status == 500) {
+        showModal("Erreur", "Une erreur est survenue durant le tirage");
+      } else {
+        serialNumber = data.message;
+        document.getElementById('serialNumberContainer').innerHTML = `Voici votre numéro de ticket : <p id="serialNumber">${serialNumber}</p>`;
+        document.getElementById('serialNumberContainer').hidden = false;
+        document.getElementById('checkTicket').hidden = false;
+      }
+    }
+
+    async function checkTicket() {
+      let serial = document.getElementById('serialNumber').textContent;
+
+      const response = await fetch("/winner.php?serial=" + serial);
+      const data = await response.json();
+
+      if (data.status == 500) {
+        showModal("Erreur", "Une erreur est survenue durant la vérification du ticket");
+      } else {
+        let message = data.message;
+        showModal("Résultat du ticket", message);
+      }
+    }
+
+    drawWheel();
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,19 @@
+index.html
+articles.html
+propos.html
+login.php
+user_profile.php
+
+<!-- Admin page in construction -->
+<!-- A supprimer en prod : user : jeanne, password : Pa$Sw0RdD1@ -->
+
+  ____         ____
+ /. . \       / . .\
+/ .-~-.\ \_/ /.-~-. \
+\ '._.'.\(_)/.'._.' /
+ \. ..-. |=| .-.. ./
+  \  `-' |=| `-'  /
+   \____/|=|\____/
+    /.-..|=|..-.\
+   /.`-'./^\.`-'.\
+   \____/   \____/

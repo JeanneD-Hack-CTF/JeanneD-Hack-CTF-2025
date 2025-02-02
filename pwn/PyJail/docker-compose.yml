@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  pyjail:
+    image: pyjail:latest
+    restart: unless-stopped
+    # Required for nsjail to work properly
+    privileged: true 
+    ports:
+      - "9003:9000"

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Administration</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Panneau d'administration</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('dashboard') }}"><button>Tableau de bord</button></a></li>
+                <li><a href="{{ url_for('logs') }}"><button>Logs</button></a></li>
+                <li><a href="{{ url_for('users') }}"><button>Utilisateurs</button></a></li>
+                <li><a href="{{ url_for('logout') }}"><button>Se déconnecter</button></a></li>
+            </ul>
+        </nav>
+        <p>Bienvenue, administrateur !</p>
+    </div>
+</body>
+</html>

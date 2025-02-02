@@ -1,0 +1,5 @@
+services:
+  secure-cache-server:
+    build: .
+    ports:
+      - 50003:50003

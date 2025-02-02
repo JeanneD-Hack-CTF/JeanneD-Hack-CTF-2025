@@ -1,0 +1,3 @@
+# Cron job to delete old user notes
+*/15 * * * * /app/clear_notes.sh >> /var/log/cron.log 2>&1
+

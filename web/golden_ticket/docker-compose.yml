@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  php-apache:
+    build: .
+    volumes:
+      - ./app:/var/www/html
+    ports:
+      - 80:80
+    links:
+      - 'mariadb'
+    env_file:
+      - .env
+
+  mariadb:
+    image: mariadb:latest
+    volumes:
+      - ./app/db_init:/docker-entrypoint-initdb.d
+    env_file:
+      - .env

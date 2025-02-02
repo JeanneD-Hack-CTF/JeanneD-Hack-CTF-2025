@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+body {
+    width: 210mm; /* Largeur A4 */
+    height: 297mm; /* Hauteur A4 */
+}
+</style>
+
+<h1 style="font-family: Orbitron">{{ name|safe }}</h1>
+
+<div class="section contact-info">
+    <div><span style="font-family: Orbitron" class="label">Email:</span> {{ email|safe }}</div>
+    <div><span style="font-family: Orbitron" class="label">Phone:</span> {{ phone|safe }}</div>
+    <div><span style="font-family: Orbitron" class="label">Address:</span> {{ address|safe }}</div>
+</div>
+
+<div class="section">
+    <h2 style="font-family: Orbitron">Experiences</h2>
+    {% for experience in experiences %}
+    <div class="experience">
+        <h3 style="font-family: Orbitron">{{ experience.title|safe }} - {{ experience.company|safe }}</h3>
+        <p style="font-family: Orbitron"><span class="label">From:</span> {{ experience.start_date|safe }} <span class="label">To:</span> {{ experience.end_date|safe }}</p>
+        <p style="font-family: Orbitron">{{ experience.description|safe }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="section">
+    <h2 style="font-family: Orbitron">Formations</h2>
+    {% for formation in formations %}
+    <div class="formation">
+        <h3 style="font-family: Orbitron">{{ formation.title|safe }} - {{ formation.school|safe }}</h3>
+        <p style="font-family: Orbitron"><span class="label">From:</span> {{ formation.start_date|safe }} <span class="label">To:</span> {{ formation.end_date|safe }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="section skills">
+    <h2 style="font-family: Orbitron">Skills</h2>
+    <p style="font-family: Orbitron">{{ skills|safe }}</p>
+</div>
+
+<div class="section languages">
+    <h2 style="font-family: Orbitron">Languages</h2>
+    <p style="font-family: Orbitron">{{ languages|safe }}</p>
+</div>
+
+{% endblock %}

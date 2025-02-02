@@ -1,0 +1,43 @@
+#myProgress {
+    background-color: #ddd;
+    padding: 5px;
+    margin: 5px;
+  }
+  
+#myBar {
+  width: 1%;
+  background-color: #04AA6D;
+  white-space: nowrap;
+  padding: 5px;
+  margin: 5px;
+}
+
+#msg {
+  left: 50%; 
+  padding: 5px;
+  margin: 5px;
+}
+
+#send {
+  border-style: dashed;
+  border-color: black;
+  border-radius: 5px;
+  border-width: 2px;
+  display: inline-block;
+  position: absolute; /* Position it absolutely within the container */
+  left: 50%; 
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+#send:active {
+  border-style: solid;
+}
+
+body {
+  font-family: Arial, sans-serif; /* Fallback to generic sans-serif */
+  line-height: 1.5; /* Optional: improves readability */
+  margin: 0; /* Optional: remove default margin */
+  padding: 20px; /* Optional: add some padding */
+}

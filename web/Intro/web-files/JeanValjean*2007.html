@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Root Profil</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<header>
+        <div class="header-container">
+            <h1> Cémignon - Animaux du futur</h1>
+            <nav>
+                <a href="index.html">Accueil</a>
+                <a href="pets.html">Animaux</s>
+                <a href="propos.html">Page à propos</a>
+                <a href="connexion.html">Connexion</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+            <h1> Root profil </h1>
+            <p> Bienvenue sur le profil de Root. </p>
+            <p> username : Root </p>
+            <p> Get file fonctionality : <input type="text" id="file" name="file" required value="test.txt"> </p>
+            <button type="submit" onclick="getFile()">Get file</button>
+            <p id="output"></p>
+            <!-- Information in red -->
+            <p style="color:red;">Attention, le fichier de flag est protégé par le script, vous ne pourrez pas le récupérer hihi</p>
+
+            <script>
+                function getFile() {
+                    var fileName = document.getElementById('file').value;
+                    var filePath = 'files/' + fileName;
+        
+                    // If fileName contains the file /usr/share/nginx/html/this_is_the_flag_file145.php dont get the file
+                    if (fileName.includes('this_is_the_flag_file145.php')) {
+                        document.getElementById('output').textContent = 'You are not allowed to get this file';
+                        // #CHEH
+                        return;
+                    }
+                    // Insecure fetch request without sanitizing user input
+                    fetch(filePath)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('File not found');
+                            }
+                            return response.text();
+                        })
+                        .then(data => {
+                            document.getElementById('output').textContent = data;
+                        })
+                        .catch(error => {
+                            document.getElementById('output').textContent = error.message;
+                        });
+                }
+            </script>
+
+    </div>
+
+</body>
+</html>

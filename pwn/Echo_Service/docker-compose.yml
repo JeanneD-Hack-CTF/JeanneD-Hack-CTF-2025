@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  echo_service:
+    image: echo_service:latest
+    restart: unless-stopped
+    # Required for nsjail to work properly
+    privileged: true 
+    ports:
+      - "9000:9000"

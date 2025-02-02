@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .article {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .article-item {
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .article-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<header>
+        <div class="header-container">
+            <h1>189aXA - Cybernetics swords</h1>
+            <nav>
+                <a href="index.html">Accueil</a>
+                <a href="articles.html">Articles</a>
+                <a href="propos.html">A propos</a>
+                <a href="login.php">Connexion</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Articles</h1>
+        <div class="article">
+            <div class="article-item">
+                <img class="article-image" src="img/articles/robots.png" alt="Epée tueuse de robots.txt">
+                <h2>Epée tueuse de robots.txt</h2>
+                <p>Cette épée est capable de tuer les robots, et de dévoiller les secrets des sites web..</p>
+                <p>Prix: 1000000000 $</p>
+            </div>
+            <div class="article-item">
+                <img class="article-image" src="img/articles/wood_sword.png" alt="Epée en bois">
+                <h2>Epée en bois</h2>
+                <p>Epée très rare, faite en bois.</p>
+                <p>Prix: $15000</p>
+            </div>
+            <div class="article-item">
+                <img class="article-image" src="img/articles/sword.png" alt="Epée futuristique">
+                <h2>Epée futuristique</h2>
+                <p>Epée futuristique, très dangereuse.</p>
+                <p>Prix: $20</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+services:
+  proxy:
+    image: traefik:v3.2
+    container_name: traefik-reverse-proxy
+    command: --providers.docker
+    ports:
+      - "80:80"
+    depends_on:
+      - intro
+      - cyber_swords_1
+      - cyber_swords_2
+      - correction
+      - we_need_you
+      - learning
+      - knowledge_base
+    volumes:
+      # So that Traefik can listen to the Docker events
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      challenge_web_net:
+        ipv4_address: 10.5.0.5
+
+  intro:
+    hostname: intro
+    build:
+      context: ./Intro
+      dockerfile: Dockerfile
+    container_name: web_intro
+    labels:
+      - "traefik.http.routers.intro.rule=Host(`intro.web.jeanne-hack-ctf.org`)"
+    networks:
+      challenge_web_net:
+        ipv4_address: 10.5.0.6
+
+  cyber_swords_1:
+    build:
+      context: ./JWT_Mania_I
+      dockerfile: Dockerfile
+    container_name: cyber_swords_I
+    labels:
+      - "traefik.http.routers.cs1.rule=Host(`cyber-swords-1.web.jeanne-hack-ctf.org`)"
+    networks:
+      challenge_web_net:
+        ipv4_address: 10.5.0.7
+
+  cyber_swords_2:
+    build:
+      context: ./JWT_Mania_II
+      dockerfile: Dockerfile
+    container_name: cyber_swords_II
+    labels:
+      - "traefik.http.routers.cs2.rule=Host(`cyber-swords-2.web.jeanne-hack-ctf.org`)"
+    networks:
+      challenge_web_net:
+        ipv4_address: 10.5.0.8
+    command: /bin/bash /app/ldap/start.sh
+    volumes:
+      - ./JWT_Mania_II:/app
+
+  we_need_you:
+    build:
+      context: ./We_need_you
+      dockerfile: Dockerfile
+    container_name: we_need_you
+    labels:
+      - "traefik.http.routers.weedneedyou.rule=Host(`we-need-you.web.jeanne-hack-ctf.org`)"
+    networks:
+      challenge_web_net:
+        ipv4_address: 10.5.0.9
+
+  correction:
+    build:
+      context: ./correction
+      dockerfile: Dockerfile
+    volumes:
+      - ./correction/app:/var/www/html
+    container_name: correction
+    labels:
+      - "traefik.http.routers.correction.rule=Host(`correction.web.jeanne-hack-ctf.org`)"
+    networks:
+      challenge_web_net:
+        ipv4_address: 10.5.0.10
+
+  golden_ticket:
+    build:
+      context: ./golden_ticket
+      dockerfile: Dockerfile
+    volumes:
+      - ./golden_ticket/app:/var/www/html
+    labels:
+      - "traefik.http.routers.goldenticket.rule=Host(`golden-ticket.web.jeanne-hack-ctf.org`)"
+    links:
+      - 'mariadb'
+    env_file:
+      - ./golden_ticket/.env
+    networks:
+      challenge_web_net:
+        ipv4_address: 10.5.0.11
+
+  mariadb:
+    image: mariadb:latest
+    volumes:
+      - ./golden_ticket/app/db_init:/docker-entrypoint-initdb.d
+    env_file:
+      - ./golden_ticket/.env
+    networks:
+      challenge_web_net:
+        ipv4_address: 10.5.0.12
+
+  knowledge_base:
+    build:
+      context: ./Knowledge_Base
+      dockerfile: Dockerfile
+    container_name: knowledge_base
+    labels:
+      - "traefik.http.routers.knowledgebase.rule=Host(`knowledge-base.web.jeanne-hack-ctf.org`)"
+    networks:
+      challenge_web_net:
+        ipv4_address: 10.5.0.13
+
+  menu:
+    image: nginx:latest
+    labels:
+      - "traefik.http.routers.menu.rule=Host(`menu.web.jeanne-hack-ctf.org`)"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html
+    networks:
+      challenge_web_net:
+        ipv4_address: 10.5.0.14
+
+  learning:
+    build:
+      context: ./Learning
+      dockerfile: Dockerfile
+    container_name: learning
+    labels:
+      - "traefik.http.routers.learning.rule=Host(`learning.web.jeanne-hack-ctf.org`)"
+    networks:
+      challenge_web_net:
+        ipv4_address: 10.5.0.15
+
+networks:
+  challenge_web_net:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1
+

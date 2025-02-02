@@ -1,0 +1,5 @@
+services:
+  we_need_you:
+    build: .
+    ports:
+      - 8000:8000

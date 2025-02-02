@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="connexion.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.4.2/sha1.js"></script>
+</head>
+
+<script>
+function sha1(input) {
+    var shaObj = new jsSHA("SHA-1", "TEXT");
+    shaObj.update(input);
+    return shaObj.getHash("HEX");
+}
+</script>
+
+<body>
+<header>
+        <div class="header-container">
+            <h1> Cémignon - Animaux du futur</h1>
+            <nav>
+                <a href="index.html">Accueil</a>
+                <a href="pets.html">Animaux</s>
+                <a href="propos.html">Page à propos</a>
+                <a href="connexion.html">Connexion</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Connexion</h1>
+        <form action="javascript:connect()" method="post">
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" id="username" name="username" required value="">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" required value="">
+            <button type="submit">Se connecter</button>
+    </div>
+
+</body>
+</html>
